@@ -3,19 +3,26 @@
     <head>
         <title>An interactive web page</title>
         <style>
+            body{
+                width: 80vw;
+                margin: 10vh auto;
+            }
             #color_box { width: 200px; height: 200px; }
             .gray { background: gray; }
             .blue { background: rgb(67, 111, 255); }
             .pink { background: pink; }
+
         </style>
     </head>
     <body>
+        <!-- <div id="container"> -->
         <h1>An interactive web page</h1>
 
         <h2>1. Color changer</h2>
         <button id="gray_button">Gray</button>
         <button id="blue_button">Blue</button>
-        <div id="color_box" class="gray"></div>        
+        <div id="color_box" class="gray"></div> 
+          
         <script>
             const color_box = document.getElementById("color_box");
             
@@ -34,6 +41,17 @@
              *  Adicionar um botão e um event handler 
              *  e o botão torna o quadrado rosa.
              */
+            const body = document.querySelector('body');
+            const button = document.createElement('button');
+
+            button.innerText = 'Pink';
+            body.insertBefore(button, blue_button.nextSibling);
+            button.onclick = function(){
+                color_box.className='pink';
+            };
+
+           
+            
         </script>
 
         <hr>
@@ -53,6 +71,10 @@
                  *  atualiza o conteúdo de texto do "countspan" 
                  *  e mostra o valor atual de "count".
                  */
+                count++;
+                countspan.style.fontSize= 20+'px';
+                countspan.innerHTML = '<b>' + count+'</b>';
+
             }
         </script>
 
@@ -68,7 +90,59 @@
                  * A função mostra um "alert dialog" mostrando se o contador 
                  * (da segunda tarefa (TODO 2)) é par ou impar.
                  */
+                if(count%2 ===0){
+                    alert("Numero encontrado em Counter é Par");
+
+                    }else{
+                    alert("Numero encontrado em Counter é Impar");
+                };
             }
+            const div = document.createElement('div');
+            div.style.textAlign= 'center';
+            div.style.paddingTop= '20px';
+            body.appendChild(div);
+
+
+            const button1 = document.createElement('button');
+            button1.innerText= 'Botao 1';
+            div.appendChild(button1);
+
+            button1.addEventListener('click', function(){
+                body.style.background = '#F5A9A9';
+            });
+
+            const button2 = document.createElement('button');
+            button2.innerText= 'Botao 2';
+            div.appendChild(button2);
+
+            button2.addEventListener('click', function(){
+                body.style.background = '#F5D0A9';
+            });
+
+            const button3 = document.createElement('button');
+            button3.innerText= 'Botao 3';
+            div.appendChild(button3);
+
+            button3.addEventListener('click', function(){
+                body.style.background = '#D0F5A9' ;
+            });
+
+            const button4= document.createElement('button');
+            button4.innerText= 'Botao 4';
+            div.appendChild(button4);
+
+            button4.addEventListener('click', function(){
+                body.style.background = '#A9E2F3' ;
+            });
+
+            const button5 = document.createElement('button');
+            button5.innerText= 'Botao 5';
+            div.appendChild(button5);
+
+            button5.addEventListener('click', function(){
+                body.style.background = '#D8D8D8';
+            });
         </script>
+        <!-- </div>  -->
     </body>
 </html>
